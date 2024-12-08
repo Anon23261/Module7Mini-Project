@@ -13,6 +13,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       
       - name: Setup Python
         uses: actions/setup-python@v3
@@ -44,6 +46,9 @@ jobs:
           cp index.html build/
           cp -r src build/
           cp -r assets build/
+          ls -la build/
+          echo "Build directory contents:"
+          find build -type f
           
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
@@ -52,3 +57,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           force_orphan: true
+          enable_jekyll: false
+          commit_message: "Deploy to GitHub Pages"
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
