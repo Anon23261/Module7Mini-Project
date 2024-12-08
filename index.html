@@ -106,29 +106,27 @@
             <p>Join our community of security researchers and OS developers.</p>
             <form id="ghost-sec-signup">
                 <div class="form-group">
-                    <input type="text" id="signup-name" placeholder="Your Name" required>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="signup-email" placeholder="Your Email" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <select id="signup-expertise" required>
-                        <option value="">Select Your Expertise Level</option>
-                        <option value="beginner">Beginner</option>
-                        <option value="intermediate">Intermediate</option>
-                        <option value="advanced">Advanced</option>
+                    <label for="interests">Areas of Interest:</label>
+                    <select id="interests" name="interests" multiple required>
+                        <option value="os-dev">Operating System Development</option>
+                        <option value="security">Security Research</option>
+                        <option value="malware">Malware Analysis</option>
+                        <option value="reverse">Reverse Engineering</option>
                     </select>
                 </div>
-                <div class="form-group interests">
-                    <label>Areas of Interest:</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="interests" value="os-dev"> OS Development</label>
-                        <label><input type="checkbox" name="interests" value="security"> Security Research</label>
-                        <label><input type="checkbox" name="interests" value="malware"> Malware Analysis</label>
-                        <label><input type="checkbox" name="interests" value="reverse-eng"> Reverse Engineering</label>
-                    </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
                 </div>
-                <button type="submit" class="cyber-button">Join GHOST Sec</button>
+                <button type="submit" class="cyber-button">Submit Application</button>
             </form>
         </section>
 
