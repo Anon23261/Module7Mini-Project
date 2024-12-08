@@ -106,25 +106,33 @@
             <p>Join our community of security researchers and OS developers.</p>
             <form id="ghost-sec-signup">
                 <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <label>
+                        Name:
+                        <input type="text" name="name" required>
+                    </label>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <label>
+                        Email:
+                        <input type="email" name="email" required>
+                    </label>
                 </div>
                 <div class="form-group">
-                    <label for="interests">Areas of Interest:</label>
-                    <select id="interests" name="interests" multiple required>
-                        <option value="os-dev">Operating System Development</option>
-                        <option value="security">Security Research</option>
-                        <option value="malware">Malware Analysis</option>
-                        <option value="reverse">Reverse Engineering</option>
-                    </select>
+                    <label>
+                        Areas of Interest:
+                        <select name="interests" multiple required>
+                            <option value="os-dev">Operating System Development</option>
+                            <option value="security">Security Research</option>
+                            <option value="malware">Malware Analysis</option>
+                            <option value="reverse">Reverse Engineering</option>
+                        </select>
+                    </label>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <label>
+                        Message:
+                        <textarea name="message" rows="4" required></textarea>
+                    </label>
                 </div>
                 <button type="submit" class="cyber-button">Submit Application</button>
             </form>
@@ -134,13 +142,22 @@
             <h2 class="cyber-glow">Contact</h2>
             <form id="contact-form">
                 <div class="form-group">
-                    <input type="text" id="contact-name" placeholder="Your Name" required>
+                    <label>
+                        Name:
+                        <input type="text" name="contact-name" required>
+                    </label>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="contact-email" placeholder="Your Email" required>
+                    <label>
+                        Email:
+                        <input type="email" name="contact-email" required>
+                    </label>
                 </div>
                 <div class="form-group">
-                    <textarea id="contact-message" placeholder="Your Message" required></textarea>
+                    <label>
+                        Message:
+                        <textarea name="contact-message" rows="4" required></textarea>
+                    </label>
                 </div>
                 <button type="submit" class="cyber-button">Send Message</button>
             </form>
