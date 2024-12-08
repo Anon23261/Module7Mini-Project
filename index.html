@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHOST Sec - Cybersecurity & OS Development</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/css/notifications.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="cyber-glow">GHOST Sec</h1>
+            <p class="subtitle">Advanced Operating Systems & Security Research</p>
+        </header>
+
+        <nav>
+            <a href="#projects">Projects</a>
+            <a href="#labs">Learning Labs</a>
+            <a href="#ghost-sec">Join GHOST Sec</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <section id="projects">
+            <h2 class="cyber-glow">Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>GHOST OS</h3>
+                    <p>A secure, lightweight operating system built from scratch.</p>
+                    <div class="tech-stack">
+                        <span>C++</span>
+                        <span>Assembly</span>
+                        <span>OS Dev</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/ghost_os_cpp/docs/index.html">Documentation</a>
+                        <a href="https://github.com/anon23261/ghost-os">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>OS Development Toolkit</h3>
+                    <p>Essential tools and utilities for OS development.</p>
+                    <div class="tech-stack">
+                        <span>Rust</span>
+                        <span>Systems</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/ghost_os_toolkit/docs/index.html">Documentation</a>
+                        <a href="https://github.com/anon23261/ghost-os-toolkit">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Malware Analyzer</h3>
+                    <p>Advanced malware analysis and detection tools.</p>
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>Security</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/malware_analyzer/docs/index.html">Documentation</a>
+                        <a href="https://github.com/anon23261/malware-analyzer">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>C++ Learning Lab</h3>
+                    <p>Comprehensive C++ curriculum focusing on systems programming.</p>
+                    <div class="tech-stack">
+                        <span>C++</span>
+                        <span>Education</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/cpp_learning_lab/curriculum/README.md">Curriculum</a>
+                        <a href="https://github.com/anon23261/cpp-learning-lab">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="labs">
+            <h2 class="cyber-glow">Learning Labs</h2>
+            <div class="labs-grid">
+                <div class="lab-card">
+                    <h3>OS Development</h3>
+                    <p>Learn to build an operating system from scratch.</p>
+                    <a href="projects/cpp_learning_lab/curriculum/labs/os_dev/README.md">Start Learning</a>
+                </div>
+                <div class="lab-card">
+                    <h3>Memory Management</h3>
+                    <p>Deep dive into memory allocators and management.</p>
+                    <a href="projects/cpp_learning_lab/curriculum/labs/memory/README.md">Start Learning</a>
+                </div>
+                <div class="lab-card">
+                    <h3>Security Analysis</h3>
+                    <p>Hands-on security analysis and exploitation.</p>
+                    <a href="projects/cpp_learning_lab/curriculum/labs/security/README.md">Start Learning</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="ghost-sec">
+            <h2 class="cyber-glow">Join GHOST Sec</h2>
+            <p>Join our community of security researchers and OS developers.</p>
+            <form id="ghost-sec-signup">
+                <div class="form-group">
+                    <input type="text" id="signup-name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="signup-email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <select id="signup-expertise" required>
+                        <option value="">Select Your Expertise Level</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="form-group interests">
+                    <label>Areas of Interest:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="interests" value="os-dev"> OS Development</label>
+                        <label><input type="checkbox" name="interests" value="security"> Security Research</label>
+                        <label><input type="checkbox" name="interests" value="malware"> Malware Analysis</label>
+                        <label><input type="checkbox" name="interests" value="reverse-eng"> Reverse Engineering</label>
+                    </div>
+                </div>
+                <button type="submit" class="cyber-button">Join GHOST Sec</button>
+            </form>
+        </section>
+
+        <section id="contact">
+            <h2 class="cyber-glow">Contact</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <input type="text" id="contact-name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="contact-email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="contact-message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="cyber-button">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 GHOST Sec. All rights reserved.</p>
+    </footer>
+
+    <script src="src/js/main.js"></script>
+</body>
+</html>

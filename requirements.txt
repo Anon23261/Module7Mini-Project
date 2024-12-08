@@ -1,0 +1,12 @@
+yara-python>=4.3.0
+python-magic>=0.4.27
+pefile>=2023.2.7
+requests>=2.31.0
+ssdeep>=3.4
+pandas>=2.0.3
+rich>=13.4.2
+psutil>=5.9.5
+aiohttp>=3.8.5
+cryptography>=41.0.3
+pyOpenSSL>=23.2.0
+python-magic-bin>=0.4.14; sys_platform == 'win32'

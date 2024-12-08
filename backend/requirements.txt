@@ -1,0 +1,6 @@
+flask==2.3.3
+flask-cors==4.0.0
+flask-sqlalchemy==3.0.5
+flask-mail==0.9.1
+python-dotenv==1.0.0
+gunicorn==21.2.0

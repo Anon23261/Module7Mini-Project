@@ -1,0 +1,71 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - gh-pages
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          
+      - name: Install Node.js dependencies
+        run: |
+          npm install -g http-server
+          
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          
+      - name: Build documentation
+        run: |
+          # Build C++ documentation if needed
+          if [ -d "projects/cpp_learning_lab" ]; then
+            cd projects/cpp_learning_lab
+            if [ -f "docs/build.sh" ]; then
+              bash docs/build.sh
+            fi
+            cd ../..
+          else
+            echo "cpp_learning_lab directory not found, skipping C++ documentation"
+          fi
+          
+          # Build Rust documentation
+          if [ -d "projects/rust_security_tools" ]; then
+            cd projects/rust_security_tools
+            cargo doc --no-deps --all-features || echo "Rust documentation build failed"
+            cd ../..
+          else
+            echo "rust_security_tools directory not found, skipping Rust documentation"
+          fi
+          
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/gh-pages'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          force_orphan: true
