@@ -9,36 +9,49 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Deploy
         run: |
+          # Configure git
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           
-          # Create a temporary directory for docs
-          mkdir -p temp_docs
+          # Create and populate docs directory
+          mkdir -p docs
           
-          # Copy all documentation
-          cp -r projects/ghost_os_cpp/docs/html/* temp_docs/ || true
-          cp -r projects/ghost_os_toolkit/target/doc/* temp_docs/ || true
-          cp -r projects/cpp_learning_lab/curriculum/* temp_docs/ || true
+          # Copy C++ docs if they exist
+          if [ -d "projects/ghost_os_cpp/docs/html" ]; then
+            cp -r projects/ghost_os_cpp/docs/html/* docs/
+          fi
           
-          # Switch to gh-pages branch
+          # Copy curriculum docs if they exist
+          if [ -d "projects/cpp_learning_lab/curriculum" ]; then
+            mkdir -p docs/curriculum
+            cp -r projects/cpp_learning_lab/curriculum/* docs/curriculum/
+          fi
+          
+          # Create index file
+          echo '<!DOCTYPE html>
+          <html>
+          <head>
+            <title>Project Documentation</title>
+            <meta http-equiv="refresh" content="0; url=./html/index.html">
+          </head>
+          <body>
+            <p>Redirecting to documentation...</p>
+          </body>
+          </html>' > docs/index.html
+          
+          # Create and switch to gh-pages branch
           git checkout --orphan gh-pages
-          git reset --hard
+          git rm -rf .
           
-          # Remove everything except .git and temp_docs
-          find . -maxdepth 1 ! -name '.git' ! -name 'temp_docs' -exec rm -rf {} +
+          # Move docs to root
+          mv docs/* .
+          rm -rf docs
           
-          # Move docs to root and cleanup
-          mv temp_docs/* .
-          rm -rf temp_docs
-          
-          # Create necessary files
+          # Add .nojekyll file
           touch .nojekyll
-          echo '<meta http-equiv="refresh" content="0; url=./html/index.html">' > index.html
           
           # Commit and push
           git add -A
