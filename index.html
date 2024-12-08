@@ -3,40 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Systems Programming Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>GHOST SEC - Security Research Portfolio</title>
     <link rel="stylesheet" href="src/css/styles.css">
-    <script src="src/js/main.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#labs">Labs</a>
-        <a href="#tools">Tools</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <div class="header">
+        <div class="container">
+            <div class="ghost-sec-logo matrix-effect">GHOST SEC</div>
+            <p class="subtitle matrix-effect">Advanced Security Research & Development</p>
+            <nav class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#labs">Labs</a>
+                <a href="#tools">Tools</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </div>
 
     <main class="container">
-        <section id="home">
-            <h1>Systems Programming Portfolio</h1>
-            <p>A comprehensive showcase of systems programming, security research, and educational materials</p>
-        </section>
-
-        <section id="projects">
-            <h2>Core Projects</h2>
+        <section id="projects" class="section">
+            <h2 class="section-title matrix-effect">Core Projects</h2>
             <div class="project-grid">
                 <!-- GHOST OS -->
                 <div class="project-card">
                     <h3>GHOST OS</h3>
-                    <p>A custom operating system implementation focusing on security and efficiency</p>
-                    <div class="tech-stack">
-                        <span>C++</span>
-                        <span>Assembly</span>
-                        <span>OS Development</span>
-                    </div>
+                    <p>A custom operating system implementation focused on security</p>
                     <div class="project-links">
-                        <a href="projects/ghost_os_cpp/README.md">Documentation</a>
+                        <a href="projects/ghost_os_cpp/docs/README.md">Documentation</a>
                         <a href="projects/ghost_os_cpp/src">Source Code</a>
                     </div>
                 </div>
@@ -44,220 +38,122 @@
                 <!-- OS Development Toolkit -->
                 <div class="project-card">
                     <h3>OS Development Toolkit</h3>
-                    <p>Cross-platform toolkit for operating system development</p>
-                    <div class="tech-stack">
-                        <span>Rust</span>
-                        <span>Systems</span>
-                    </div>
+                    <p>Tools and utilities for operating system development</p>
                     <div class="project-links">
                         <a href="projects/ghost_os_toolkit/README.md">Documentation</a>
                         <a href="projects/ghost_os_toolkit/src">Source Code</a>
                     </div>
                 </div>
 
-                <!-- C++ Learning Lab -->
+                <!-- Security Tools -->
                 <div class="project-card">
-                    <h3>C++ Learning Lab</h3>
-                    <p>Comprehensive C++ curriculum for systems programming</p>
-                    <div class="tech-stack">
-                        <span>C++</span>
-                        <span>Education</span>
-                    </div>
+                    <h3>Security Tools</h3>
+                    <p>Collection of cybersecurity tools and utilities</p>
                     <div class="project-links">
-                        <a href="projects/cpp_learning_lab/README.md">Documentation</a>
-                        <a href="projects/cpp_learning_lab/curriculum">Curriculum</a>
-                    </div>
-                </div>
-
-                <!-- Linux Learning Lab -->
-                <div class="project-card">
-                    <h3>Linux Learning Lab</h3>
-                    <p>Linux From Scratch (LFS) based system building tutorials</p>
-                    <div class="tech-stack">
-                        <span>Linux</span>
-                        <span>Shell</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="projects/linux_learning_lab/README.md">Documentation</a>
-                        <a href="projects/linux_learning_lab/lfs">LFS Guide</a>
-                    </div>
-                </div>
-            </div>
-
-            <h2>Security Tools</h2>
-            <div class="project-grid">
-                <!-- Malware Analyzer -->
-                <div class="project-card">
-                    <h3>Malware Analyzer</h3>
-                    <p>Advanced malware analysis and detection toolkit</p>
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>Security</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="projects/malware_analyzer.py">Source Code</a>
-                    </div>
-                </div>
-
-                <!-- Network Scanner -->
-                <div class="project-card">
-                    <h3>Network Scanner</h3>
-                    <p>Comprehensive network security assessment tool</p>
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>Networking</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="projects/network_scanner.py">Source Code</a>
+                        <a href="projects/malware_analyzer.py">Malware Analyzer</a>
+                        <a href="projects/network_scanner.py">Network Scanner</a>
+                        <a href="projects/vulnerability_scanner.cpp">Vulnerability Scanner</a>
                     </div>
                 </div>
 
                 <!-- Rust Security Tools -->
                 <div class="project-card">
-                    <h3>Rust Security Suite</h3>
-                    <p>Collection of security tools implemented in Rust</p>
-                    <div class="tech-stack">
-                        <span>Rust</span>
-                        <span>Security</span>
-                    </div>
+                    <h3>Rust Security Tools</h3>
+                    <p>Security tools implemented in Rust for performance</p>
                     <div class="project-links">
                         <a href="projects/rust_security_tools/README.md">Documentation</a>
                         <a href="projects/rust_security_tools/src">Source Code</a>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="labs" class="section">
+            <h2 class="section-title matrix-effect">Security Labs</h2>
+            <div class="lab-grid">
+                <!-- C++ Learning Lab -->
+                <div class="lab-card">
+                    <h3>C++ Learning Lab</h3>
+                    <p>Learn systems programming with C++</p>
+                    <div class="lab-links">
+                        <a href="projects/cpp_learning_lab/README.md">Curriculum</a>
+                        <a href="projects/cpp_learning_lab/labs">Lab Exercises</a>
+                    </div>
+                </div>
+
+                <!-- Linux Learning Lab -->
+                <div class="lab-card">
+                    <h3>Linux Learning Lab</h3>
+                    <p>Learn Linux system administration and security</p>
+                    <div class="lab-links">
+                        <a href="projects/linux_learning_lab/README.md">Guide</a>
+                        <a href="projects/linux_learning_lab/lfs">LFS Build</a>
+                    </div>
+                </div>
 
                 <!-- Database Forensics -->
-                <div class="project-card">
+                <div class="lab-card">
                     <h3>Database Forensics</h3>
-                    <p>SQL-based database forensics and analysis tools</p>
-                    <div class="tech-stack">
-                        <span>SQL</span>
-                        <span>Forensics</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="projects/database_forensics.sql">Source Code</a>
+                    <p>Learn database security and forensics</p>
+                    <div class="lab-links">
+                        <a href="projects/database_forensics.sql">SQL Lab</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="labs">
-            <h2>Laboratory Modules</h2>
-            
-            <!-- OS Development Labs -->
-            <div class="lab-section">
-                <h3>Operating System Development</h3>
-                <div class="labs-grid">
-                    <div class="lab-card">
-                        <h4>Bootloader Development</h4>
-                        <p>Learn to write a custom bootloader</p>
-                        <div class="lab-links">
-                            <a href="projects/cpp_learning_lab/curriculum/labs/os_dev/lab1/BOOTLOADER.md">Lab Guide</a>
-                            <a href="projects/cpp_learning_lab/curriculum/labs/os_dev/lab1/EXERCISES.md">Exercises</a>
-                        </div>
-                    </div>
-                    <div class="lab-card">
-                        <h4>Kernel Basics</h4>
-                        <p>Implement basic kernel functionality</p>
-                        <div class="lab-links">
-                            <a href="projects/cpp_learning_lab/os_lab/kernel/kernel.cpp">Sample Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Memory Management Labs -->
-            <div class="lab-section">
-                <h3>Memory Management</h3>
-                <div class="labs-grid">
-                    <div class="lab-card">
-                        <h4>Custom Allocators</h4>
-                        <p>Implement memory allocation strategies</p>
-                        <div class="lab-links">
-                            <a href="projects/cpp_learning_lab/curriculum/labs/memory/README.md">Lab Guide</a>
-                            <a href="projects/cpp_learning_lab/curriculum/labs/memory/psets/pset1/README.md">Problem Set</a>
-                        </div>
-                    </div>
-                    <div class="lab-card">
-                        <h4>Memory Management Project</h4>
-                        <p>Build a complete memory management system</p>
-                        <div class="lab-links">
-                            <a href="projects/cpp_learning_lab/curriculum/labs/memory/final_project/README.md">Project Guide</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Linux System Labs -->
-            <div class="lab-section">
-                <h3>Linux System Programming</h3>
-                <div class="labs-grid">
-                    <div class="lab-card">
-                        <h4>Linux From Scratch</h4>
-                        <p>Build a Linux system from source</p>
-                        <div class="lab-links">
-                            <a href="projects/linux_learning_lab/lfs/docs/chapter1.md">Chapter 1</a>
-                            <a href="projects/linux_learning_lab/lfs/docs/chapter2.md">Chapter 2</a>
-                            <a href="projects/linux_learning_lab/lfs/docs/chapter3.md">Chapter 3</a>
-                            <a href="projects/linux_learning_lab/lfs/docs/chapter4.md">Chapter 4</a>
-                        </div>
-                    </div>
-                    <div class="lab-card">
-                        <h4>Advanced Linux Systems</h4>
-                        <p>Advanced system configuration and management</p>
-                        <div class="lab-links">
-                            <a href="projects/linux_learning_lab/als/scripts/build_system.py">Build System</a>
-                            <a href="projects/linux_learning_lab/als/scripts/system_configurator.py">System Config</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="tools">
-            <h2>Development Tools</h2>
+        <section id="tools" class="section">
+            <h2 class="section-title matrix-effect">Security Tools</h2>
             <div class="tools-grid">
                 <div class="tool-card">
-                    <h3>Build Scripts</h3>
+                    <h3>Analysis Tools</h3>
                     <ul>
-                        <li><a href="projects/cpp_learning_lab/docs/build.sh">C++ Build Script</a></li>
-                        <li><a href="projects/linux_learning_lab/lfs/scripts/build_toolchain.sh">LFS Toolchain Builder</a></li>
-                        <li><a href="projects/linux_learning_lab/lfs/scripts/verify_build.sh">Build Verifier</a></li>
+                        <li><a href="projects/malware_analyzer.py">Malware Analysis Tool</a></li>
+                        <li><a href="projects/network_scanner.py">Network Security Scanner</a></li>
+                        <li><a href="projects/vulnerability_scanner.cpp">Vulnerability Assessment Tool</a></li>
                     </ul>
                 </div>
+                
                 <div class="tool-card">
-                    <h3>Configuration Files</h3>
+                    <h3>Development Tools</h3>
                     <ul>
-                        <li><a href="projects/cpp_learning_lab/os_lab/bootloader/stage1.asm">Bootloader Config</a></li>
-                        <li><a href="projects/cpp_learning_lab/os_lab/CMakeLists.txt">CMake Config</a></li>
-                        <li><a href="projects/linux_learning_lab/als/config/system.yaml">System Config</a></li>
+                        <li><a href="projects/ghost_os_toolkit/tools">OS Development Tools</a></li>
+                        <li><a href="projects/rust_security_tools/tools">Rust Security Suite</a></li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit">Send Message</button>
-            </form>
+        <section id="contact" class="section">
+            <h2 class="section-title matrix-effect">Secure Contact</h2>
+            <div class="contact-form">
+                <form id="contactForm" action="https://formspree.io/f/xjvqgwoj" method="POST">
+                    <input type="hidden" name="_subject" value="New message from GHOST SEC">
+                    <input type="hidden" name="_next" value="https://ghostsec.dev/thanks.html">
+                    <div class="form-group">
+                        <label for="name">Code Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Secure Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Encrypted Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="button matrix-effect">Transmit</button>
+                </form>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>Systems Programming Portfolio - Module 7 Mini Project</p>
+    <footer class="footer">
+        <div class="container">
+            <p class="matrix-effect">&copy; 2024 GHOST SEC - Securing the Digital Frontier</p>
+        </div>
     </footer>
+
+    <script src="src/js/main.js"></script>
 </body>
 </html>

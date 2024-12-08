@@ -1,11 +1,14 @@
 /* Reset and Base Styles */
 :root {
-    --primary-color: #333;
-    --secondary-color: #666;
-    --accent-color: #007bff;
-    --background-color: #fff;
-    --text-color: #333;
-    --border-color: #ddd;
+    --primary-color: #00ff00;
+    --secondary-color: #ff0000;
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --hover-color: rgba(0, 255, 0, 0.1);
+    --card-background: rgba(0, 0, 0, 0.8);
+    --font-mono: 'Share Tech Mono', monospace;
+    --accent-color: #ff3333;
+    --border-color: #333333;
     --success-color: #28a745;
     --error-color: #dc3545;
 }
@@ -17,7 +20,7 @@
 }
 
 body {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-mono);
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
@@ -35,6 +38,8 @@ header {
     padding: 40px 0;
     position: relative;
     overflow: hidden;
+    background-color: var(--background-color);
+    border-bottom: 2px solid var(--primary-color);
 }
 
 .cyber-glow {
@@ -62,6 +67,8 @@ h1 {
     font-size: 4em;
     margin-bottom: 10px;
     letter-spacing: 2px;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 .subtitle {
@@ -90,6 +97,7 @@ nav a {
 
 nav a:hover {
     color: var(--accent-color);
+    text-shadow: 0 0 5px var(--primary-color);
 }
 
 /* Project Cards */
@@ -101,7 +109,7 @@ nav a:hover {
 }
 
 .project-card {
-    background-color: #fff;
+    background-color: var(--background-color);
     border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 1.5rem;
@@ -110,7 +118,7 @@ nav a:hover {
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
 }
 
 .tech-stack {
@@ -146,7 +154,7 @@ nav a:hover {
 }
 
 .lab-card {
-    background-color: #fff;
+    background-color: var(--background-color);
     border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 1.5rem;
@@ -189,7 +197,7 @@ textarea {
 }
 
 button {
-    background-color: var(--accent-color);
+    background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -199,7 +207,8 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #ff1a1a;
+    box-shadow: 0 0 10px var(--primary-color);
 }
 
 /* Notifications */
@@ -342,6 +351,7 @@ h2 {
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    color: var(--primary-color);
 }
 
 .cyber-line {
@@ -751,36 +761,242 @@ h2 {
 }
 
 .contact-form {
-    background: var(--background-color);
-    padding: 2rem;
-    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--card-background);
     border: 1px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+    font-size: 1.1em;
+    text-shadow: 0 0 5px var(--primary-color);
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.7);
     border: 1px solid var(--primary-color);
-    border-radius: 5px;
     color: var(--text-color);
-    font-family: inherit;
-}
-
-.form-group textarea {
-    height: 150px;
-    resize: vertical;
+    font-family: var(--font-mono);
+    font-size: 1em;
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    box-shadow: 0 0 10px var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: rgba(0, 255, 0, 0.05);
+}
+
+.form-group input.invalid,
+.form-group textarea.invalid {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px var(--secondary-color);
+}
+
+.form-group .error-message {
+    color: var(--secondary-color);
+    font-size: 0.9em;
+    margin-top: 5px;
+    text-shadow: 0 0 5px var(--secondary-color);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+button[type="submit"] {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 12px 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--hover-color);
+    text-shadow: 0 0 5px var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+}
+
+button[type="submit"]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: var(--primary-color);
+    opacity: 0.2;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+button[type="submit"]:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Notification system */
+.notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 25px;
+    background-color: var(--card-background);
+    border: 2px solid var(--primary-color);
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    font-size: 1em;
+    z-index: 1000;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    word-wrap: break-word;
+}
+
+.notification.success {
+    border-color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
+}
+
+.notification.error {
+    border-color: var(--secondary-color);
+    text-shadow: 0 0 5px var(--secondary-color);
+}
+
+.notification::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+    animation: notification-glow 2s linear infinite;
+}
+
+@keyframes notification-glow {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Loading states */
+.loading-text {
+    position: relative;
+    display: inline-block;
+}
+
+.loading-text::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    animation: loading-bar 2s linear infinite;
+}
+
+@keyframes loading-bar {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+/* Responsive design for forms */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 20px;
+        margin: 0 15px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* Prevent zoom on mobile */
+    }
+
+    .notification {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        max-width: none;
+    }
+}
+
+/* Encryption animation */
+@keyframes encrypt {
+    0% {
+        transform: translateY(0) scaleY(1);
+    }
+    50% {
+        transform: translateY(-10px) scaleY(0.8);
+    }
+    100% {
+        transform: translateY(0) scaleY(1);
+    }
+}
+
+.encrypting {
+    animation: encrypt 1s ease infinite;
+}
+
+/* Message success animation */
+@keyframes success-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 255, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+    }
+}
+
+.success-animation {
+    animation: success-pulse 1.5s ease-out;
 }
 
 /* GHOST Sec Sign Up Form */
@@ -1426,4 +1642,60 @@ footer {
 
 .tool-card a:hover {
     color: var(--accent-color);
+}
+
+/* Thank you page styles */
+.text-center {
+    text-align: center;
+}
+
+.success-message {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--card-background);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+    animation: success-pulse 2s infinite;
+}
+
+.success-message p {
+    margin: 20px 0;
+    font-size: 1.2em;
+}
+
+.button-container {
+    margin-top: 40px;
+}
+
+.button-container .button {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 12px 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.button-container .button:hover {
+    background-color: var(--hover-color);
+    text-shadow: 0 0 5px var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+}
+
+@keyframes success-pulse {
+    0% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+    }
 }
