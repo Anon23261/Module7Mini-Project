@@ -1,4 +1,4 @@
-name: Deploy Portfolio and Backend
+name: Deploy Documentation
 
 on:
   push:
@@ -12,32 +12,28 @@ permissions:
   id-token: write
 
 jobs:
-  deploy-to-gh-pages:
+  build-and-deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          fetch-depth: 0
+          path: './docs'
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-          enable_jekyll: false
-          force_orphan: true
-          publish_branch: gh-pages
-          allow_empty_commit: false
-          keep_files: false
-          disable_nojekyll: false
-          exclude_assets: .github
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: 'Deploy documentation: ${{ github.sha }}'
+        id: deployment
+        uses: actions/deploy-pages@v3
 
   deploy-backend:
     runs-on: ubuntu-latest
