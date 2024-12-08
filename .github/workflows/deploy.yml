@@ -25,43 +25,62 @@ jobs:
           git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           
           # Create and populate docs directory
+          rm -rf docs
           mkdir -p docs
           
           # Copy C++ docs if they exist
           if [ -d "projects/ghost_os_cpp/docs/html" ]; then
-            cp -r projects/ghost_os_cpp/docs/html/* docs/
+            mkdir -p docs/cpp
+            cp -r projects/ghost_os_cpp/docs/html/* docs/cpp/
           fi
           
           # Copy curriculum docs if they exist
           if [ -d "projects/cpp_learning_lab/curriculum" ]; then
-            mkdir -p docs/curriculum
-            cp -r projects/cpp_learning_lab/curriculum/* docs/curriculum/
+            mkdir -p docs/learning_lab
+            cp -r projects/cpp_learning_lab/curriculum/* docs/learning_lab/
+            
+            # Convert README.md to HTML if pandoc is available
+            if command -v pandoc &> /dev/null; then
+              pandoc -f markdown -t html projects/cpp_learning_lab/curriculum/README.md -o docs/learning_lab/README.html
+            else
+              cp projects/cpp_learning_lab/curriculum/README.md docs/learning_lab/README.md
+            fi
           fi
           
-          # Create index file
+          # Create main index file
           echo '<!DOCTYPE html>
           <html>
           <head>
             <title>Project Documentation</title>
-            <meta http-equiv="refresh" content="0; url=./curriculum/README.html">
+            <style>
+              body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+              h1 { color: #333; }
+              .nav-links { margin: 20px 0; }
+              .nav-links a { 
+                display: block;
+                margin: 10px 0;
+                color: #0366d6;
+                text-decoration: none;
+              }
+              .nav-links a:hover { text-decoration: underline; }
+            </style>
           </head>
           <body>
-            <p>Redirecting to documentation...</p>
+            <h1>Project Documentation</h1>
+            <div class="nav-links">
+              <a href="./cpp/">C++ Documentation</a>
+              <a href="./learning_lab/">Learning Lab Curriculum</a>
+            </div>
           </body>
           </html>' > docs/index.html
           
-          # Create and switch to gh-pages branch
+          # Switch to gh-pages branch
           git checkout --orphan gh-pages
-          git rm -rf .
-          
-          # Move docs to root
-          mv docs/* .
+          git reset --hard
+          git add docs/
+          git mv docs/* .
           rm -rf docs
           
-          # Add .nojekyll file
-          touch .nojekyll
-          
-          # Commit and push
-          git add -A
-          git commit -m "Deploy documentation"
-          git push -f origin gh-pages
+          # Commit and push to gh-pages
+          git commit -m "Deploy documentation to GitHub Pages"
+          git push origin gh-pages --force
