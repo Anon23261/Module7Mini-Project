@@ -104,23 +104,23 @@
         <section id="ghost-sec">
             <h2 class="cyber-glow">Join GHOST Sec</h2>
             <p>Join our community of security researchers and OS developers.</p>
-            <form id="ghost-sec-signup">
+            <form id="ghost-sec-signup" autocomplete="on">
                 <div class="form-group">
                     <label>
                         Name:
-                        <input type="text" name="name" required>
+                        <input type="text" name="name" required autocomplete="name">
                     </label>
                 </div>
                 <div class="form-group">
                     <label>
                         Email:
-                        <input type="email" name="email" required>
+                        <input type="email" name="email" required autocomplete="email">
                     </label>
                 </div>
                 <div class="form-group">
                     <label>
                         Areas of Interest:
-                        <select name="interests" multiple required>
+                        <select name="interests" multiple required autocomplete="off">
                             <option value="os-dev">Operating System Development</option>
                             <option value="security">Security Research</option>
                             <option value="malware">Malware Analysis</option>
@@ -131,7 +131,7 @@
                 <div class="form-group">
                     <label>
                         Message:
-                        <textarea name="message" rows="4" required></textarea>
+                        <textarea name="message" rows="4" required autocomplete="off"></textarea>
                     </label>
                 </div>
                 <button type="submit" class="cyber-button">Submit Application</button>
@@ -140,23 +140,23 @@
 
         <section id="contact">
             <h2 class="cyber-glow">Contact</h2>
-            <form id="contact-form">
+            <form id="contact-form" autocomplete="on">
                 <div class="form-group">
                     <label>
                         Name:
-                        <input type="text" name="contact-name" required>
+                        <input type="text" name="contact-name" required autocomplete="name">
                     </label>
                 </div>
                 <div class="form-group">
                     <label>
                         Email:
-                        <input type="email" name="contact-email" required>
+                        <input type="email" name="contact-email" required autocomplete="email">
                     </label>
                 </div>
                 <div class="form-group">
                     <label>
                         Message:
-                        <textarea name="contact-message" rows="4" required></textarea>
+                        <textarea name="contact-message" rows="4" required autocomplete="off"></textarea>
                     </label>
                 </div>
                 <button type="submit" class="cyber-button">Send Message</button>
