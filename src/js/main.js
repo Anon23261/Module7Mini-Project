@@ -1,16 +1,16 @@
 // API Configuration
 const API_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:5000'
-    : 'https://ghost-sec-backend.herokuapp.com';
+    : 'https://api.ghostsec.dev';
 
 // Form handling functions
 async function handleContactForm(event) {
     event.preventDefault();
     
     const formData = {
-        name: document.getElementById('contact-name').value,
-        email: document.getElementById('contact-email').value,
-        message: document.getElementById('contact-message').value
+        name: event.target.querySelector('[name="contact-name"]').value,
+        email: event.target.querySelector('[name="contact-email"]').value,
+        message: event.target.querySelector('[name="contact-message"]').value
     };
     
     try {
@@ -28,7 +28,7 @@ async function handleContactForm(event) {
             showNotification('Message sent successfully!', 'success');
             event.target.reset();
         } else {
-            showNotification('Error sending message. Please try again.', 'error');
+            showNotification(data.message || 'Error sending message. Please try again.', 'error');
         }
     } catch (error) {
         console.error('Error:', error);
@@ -40,12 +40,11 @@ async function handleGhostSecSignup(event) {
     event.preventDefault();
     
     const formData = {
-        name: document.getElementById('signup-name').value,
-        email: document.getElementById('signup-email').value,
-        expertise: document.getElementById('signup-expertise').value,
-        interests: Array.from(document.querySelectorAll('input[name="interests"]:checked'))
-            .map(cb => cb.value)
-            .join(', ')
+        name: event.target.querySelector('[name="name"]').value,
+        email: event.target.querySelector('[name="email"]').value,
+        interests: Array.from(event.target.querySelector('[name="interests"]').selectedOptions)
+            .map(option => option.value),
+        message: event.target.querySelector('[name="message"]').value
     };
     
     try {
@@ -60,14 +59,14 @@ async function handleGhostSecSignup(event) {
         const data = await response.json();
         
         if (response.ok) {
-            showNotification('Signup successful! Welcome to GHOST Sec!', 'success');
+            showNotification('Application submitted successfully!', 'success');
             event.target.reset();
         } else {
-            showNotification('Error during signup. Please try again.', 'error');
+            showNotification(data.message || 'Error submitting application. Please try again.', 'error');
         }
     } catch (error) {
         console.error('Error:', error);
-        showNotification('Error during signup. Please try again.', 'error');
+        showNotification('Error submitting application. Please try again.', 'error');
     }
 }
 
@@ -79,24 +78,25 @@ function showNotification(message, type = 'info') {
     
     document.body.appendChild(notification);
     
-    // Fade in
+    // Trigger animation
     setTimeout(() => notification.classList.add('show'), 100);
     
-    // Remove after 3 seconds
+    // Remove notification after 5 seconds
     setTimeout(() => {
         notification.classList.remove('show');
         setTimeout(() => notification.remove(), 300);
-    }, 3000);
+    }, 5000);
 }
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
+    const signupForm = document.getElementById('ghost-sec-signup');
+    
     if (contactForm) {
         contactForm.addEventListener('submit', handleContactForm);
     }
     
-    const signupForm = document.getElementById('ghost-sec-signup');
     if (signupForm) {
         signupForm.addEventListener('submit', handleGhostSecSignup);
     }

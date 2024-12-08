@@ -1,0 +1,12 @@
+{
+  "api_endpoints": {
+    "signup": "/api/signup",
+    "contact": "/api/contact"
+  },
+  "email_config": {
+    "service": "smtp",
+    "host": "smtp.example.com",
+    "port": 587,
+    "secure": true
+  }
+}
