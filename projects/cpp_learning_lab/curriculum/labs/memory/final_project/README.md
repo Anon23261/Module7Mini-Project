@@ -177,3 +177,15 @@ Implement at least three of the following:
 
 ## Final Notes
 This project is an opportunity to demonstrate your understanding of memory management concepts and your ability to implement them in a practical system. Focus on creating a robust, well-documented solution that could be used in real-world applications.
+
+## New Methods
+
+### SlabAllocator
+- `size_t get_num_slabs() const noexcept`: Returns the number of slabs in the allocator.
+- `size_t get_num_free_objects() const noexcept`: Returns the number of free objects in the allocator.
+
+### PoolAllocator
+- `size_t get_num_free_blocks() const noexcept`: Returns the number of free blocks in the allocator.
+
+### BuddyAllocator
+- `size_t get_num_free_blocks() const noexcept`: Returns the number of free blocks in the allocator.

@@ -143,6 +143,20 @@ public:
         }
     }
 
+    size_t get_num_slabs() const noexcept {
+        std::lock_guard<std::mutex> lock(mutex_);
+        return all_slabs_.size();
+    }
+
+    size_t get_num_free_objects() const noexcept {
+        std::lock_guard<std::mutex> lock(mutex_);
+        size_t free_objects = 0;
+        for (const auto* slab : all_slabs_) {
+            free_objects += slab->free_count;
+        }
+        return free_objects;
+    }
+
 private:
     static constexpr uint32_t SLAB_MAGIC = 0xDEADBEEF;
 

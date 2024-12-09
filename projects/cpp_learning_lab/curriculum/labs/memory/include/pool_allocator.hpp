@@ -162,6 +162,21 @@ public:
         return pools_.size() * pool_size_ * block_size_;
     }
 
+    /**
+     * @brief Gets the number of free blocks in the allocator
+     * @return Number of free blocks
+     */
+    size_t get_num_free_blocks() const noexcept {
+        std::lock_guard<std::mutex> lock(mutex_);
+        size_t free_blocks = 0;
+        void* current = free_blocks_;
+        while (current) {
+            free_blocks++;
+            current = *static_cast<void**>(current);
+        }
+        return free_blocks;
+    }
+
 private:
     /**
      * @brief Expands the pool by allocating a new chunk of memory

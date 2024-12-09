@@ -107,6 +107,32 @@ void test_ownership() {
     allocator1.deallocate(ptr1);
 }
 
+// Exercise 6: Get Number of Slabs
+void test_get_num_slabs() {
+    SlabAllocator allocator(64);
+    assert(allocator.get_num_slabs() == 1);
+
+    void* ptr = allocator.allocate(64);
+    assert(ptr != nullptr);
+    assert(allocator.get_num_slabs() == 1);
+
+    allocator.deallocate(ptr);
+    assert(allocator.get_num_slabs() == 1);
+}
+
+// Exercise 7: Get Number of Free Objects
+void test_get_num_free_objects() {
+    SlabAllocator allocator(64);
+    assert(allocator.get_num_free_objects() == 64);
+
+    void* ptr = allocator.allocate(64);
+    assert(ptr != nullptr);
+    assert(allocator.get_num_free_objects() == 63);
+
+    allocator.deallocate(ptr);
+    assert(allocator.get_num_free_objects() == 64);
+}
+
 // Run all basic exercises
 void run_basic_exercises() {
     std::cout << "Running basic Slab Allocator exercises...\n";
@@ -126,6 +152,12 @@ void run_basic_exercises() {
     test_ownership();
     std::cout << "✓ Ownership validation test passed\n";
     
+    test_get_num_slabs();
+    std::cout << "✓ Get number of slabs test passed\n";
+
+    test_get_num_free_objects();
+    std::cout << "✓ Get number of free objects test passed\n";
+
     std::cout << "All basic exercises completed successfully!\n";
 }
 

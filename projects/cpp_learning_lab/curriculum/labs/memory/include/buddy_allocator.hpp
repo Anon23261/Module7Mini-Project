@@ -136,6 +136,14 @@ public:
         }
     }
 
+    size_t get_num_free_blocks() const noexcept {
+        size_t free_blocks = 0;
+        for (const auto& free_list : free_lists_) {
+            free_blocks += free_list.size();
+        }
+        return free_blocks;
+    }
+
 private:
     struct Block {
         size_t order;    // Block size = MIN_BLOCK_SIZE << order
