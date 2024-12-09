@@ -1,0 +1,60 @@
+# Build directories
+build/
+dist/
+target/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+
+# C++
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.a
+*.lib
+
+# Rust
+target/
+Cargo.lock
+**/*.rs.bk
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Project specific
+*.log
+*.sqlite
+*.db
+*.qcow2
+*.iso
+*.img
+
+# Documentation
+docs/_build/
+docs/api/
+
+# Test files
+*.test
+*.tmp

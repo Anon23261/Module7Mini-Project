@@ -1,0 +1,43 @@
+[package]
+name = "ghost_os_toolkit"
+version = "0.1.0"
+edition = "2021"
+authors = ["Michael 'Ghost' Samson"]
+description = "Cross-platform OS development toolkit for ARM and Windows"
+
+[dependencies]
+# Core dependencies
+tokio = { version = "1.28", features = ["full"] }
+anyhow = "1.0"
+thiserror = "1.0"
+log = "0.4"
+env_logger = "0.10"
+clap = { version = "4.3", features = ["derive"] }
+
+# OS-specific features
+windows = { version = "0.48", features = ["Win32_System_SystemInformation", "Win32_System_ProcessStatus", "Win32_System_Memory"], optional = true }
+nix = { version = "0.26", optional = true }
+libc = { version = "0.2", optional = true }
+
+# Cross-compilation support
+cc = "1.0"
+bindgen = "0.65"
+
+# Hardware interaction
+embedded-hal = "0.2"
+cortex-m = { version = "0.7", optional = true }
+cortex-m-rt = { version = "0.7", optional = true }
+
+[features]
+default = ["windows-support", "arm-support"]
+windows-support = ["windows"]
+arm-support = ["cortex-m", "cortex-m-rt"]
+linux-support = ["nix", "libc"]
+
+[[bin]]
+name = "ghost_os_toolkit"
+path = "src/main.rs"
+
+[lib]
+name = "ghost_os_toolkit"
+path = "src/lib.rs"

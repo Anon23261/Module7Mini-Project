@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Security Tools Documentation</title>
+    <link rel="stylesheet" href="../../../src/css/styles.css">
+    <style>
+        .docs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .module-section {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .module-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .module-section h3 {
+            color: #0f0;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .function-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .function-item {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--primary-color);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .function-signature {
+            font-family: 'Share Tech Mono', monospace;
+            color: #0f0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .function-description {
+            color: #ccc;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .type-definition {
+            background: rgba(0, 255, 0, 0.1);
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        code {
+            font-family: 'Share Tech Mono', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            color: #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="docs-container">
+        <h1 class="cyber-glow">Rust Security Tools</h1>
+        <p>A collection of high-performance security tools written in Rust.</p>
+        
+        <div class="module-section">
+            <h2>Network Scanner Module</h2>
+            <div class="type-definition">
+                <code>pub struct NetworkScanner { ... }</code>
+            </div>
+            <p>A high-performance network scanning module for security analysis.</p>
+            
+            <h3>Functions</h3>
+            <ul class="function-list">
+                <li class="function-item">
+                    <div class="function-signature">pub fn scan_ports(&self, target: &str, port_range: Range<u16>) -> Result<Vec<u16>></div>
+                    <p class="function-description">Scans the specified port range on the target host for open ports.</p>
+                </li>
+                <li class="function-item">
+                    <div class="function-signature">pub fn service_detection(&self, target: &str, port: u16) -> Result<ServiceInfo></div>
+                    <p class="function-description">Attempts to identify the service running on the specified port.</p>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="module-section">
+            <h2>Vulnerability Scanner Module</h2>
+            <div class="type-definition">
+                <code>pub struct VulnScanner { ... }</code>
+            </div>
+            <p>Advanced vulnerability scanning and analysis tools.</p>
+            
+            <h3>Functions</h3>
+            <ul class="function-list">
+                <li class="function-item">
+                    <div class="function-signature">pub fn scan_vulnerabilities(&self, target: &str) -> Result<Vec<Vulnerability>></div>
+                    <p class="function-description">Performs a comprehensive vulnerability scan on the target system.</p>
+                </li>
+                <li class="function-item">
+                    <div class="function-signature">pub fn generate_report(&self, scan_results: &[Vulnerability]) -> Report</div>
+                    <p class="function-description">Generates a detailed report of found vulnerabilities.</p>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="module-section">
+            <h2>Crypto Module</h2>
+            <div class="type-definition">
+                <code>pub mod crypto { ... }</code>
+            </div>
+            <p>Cryptographic utilities and security functions.</p>
+            
+            <h3>Functions</h3>
+            <ul class="function-list">
+                <li class="function-item">
+                    <div class="function-signature">pub fn encrypt_data(data: &[u8], key: &[u8]) -> Result<Vec<u8>></div>
+                    <p class="function-description">Encrypts data using industry-standard encryption.</p>
+                </li>
+                <li class="function-item">
+                    <div class="function-signature">pub fn decrypt_data(encrypted: &[u8], key: &[u8]) -> Result<Vec<u8>></div>
+                    <p class="function-description">Decrypts previously encrypted data.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

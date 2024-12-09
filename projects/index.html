@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHOST Sec Projects</title>
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        .project-docs {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .project-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        .project-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .doc-card {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1.5rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 4px;
+        }
+        
+        .doc-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .doc-card p {
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+        
+        .doc-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .doc-links a {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem;
+            background: linear-gradient(45deg, #000, #0f0);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .doc-links a:hover {
+            background: linear-gradient(45deg, #0f0, #000);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-logo cyber-glow">
+            <img src="../src/assets/ghost-sec-logo.svg" alt="GHOST Sec Logo" class="nav-logo-img">
+            GHOST SEC
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="project-docs">
+        <h1 class="cyber-glow">Project Documentation</h1>
+        
+        <!-- Operating System Development -->
+        <div class="project-section">
+            <h2 class="cyber-glow">Operating System Development</h2>
+            <div class="docs-grid">
+                <div class="doc-card">
+                    <h3>GHOST OS (C++)</h3>
+                    <p>A custom operating system focused on security and system-level programming.</p>
+                    <div class="doc-links">
+                        <a href="ghost_os_cpp/docs/html/index.html">Documentation</a>
+                        <a href="ghost_os_cpp/README.md">README</a>
+                        <a href="https://github.com/G-H-O-S-T-Sec/ghost-os">GitHub</a>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <h3>OS Development Toolkit</h3>
+                    <p>A comprehensive toolkit for operating system development and analysis.</p>
+                    <div class="doc-links">
+                        <a href="ghost_os_toolkit/target/doc/ghost_os_toolkit/index.html">Documentation</a>
+                        <a href="ghost_os_toolkit/README.md">README</a>
+                        <a href="https://github.com/G-H-O-S-T-Sec/os-toolkit">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Security Tools -->
+        <div class="project-section">
+            <h2 class="cyber-glow">Security Tools</h2>
+            <div class="docs-grid">
+                <div class="doc-card">
+                    <h3>Malware Analyzer</h3>
+                    <p>Advanced malware analysis tool with static and dynamic analysis capabilities.</p>
+                    <div class="doc-links">
+                        <a href="malware_analyzer.py">View Code</a>
+                        <a href="https://github.com/G-H-O-S-T-Sec/malware-analyzer">GitHub</a>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <h3>Network Scanner</h3>
+                    <p>Comprehensive network analysis and vulnerability assessment tool.</p>
+                    <div class="doc-links">
+                        <a href="network_scanner.py">View Code</a>
+                        <a href="https://github.com/G-H-O-S-T-Sec/network-scanner">GitHub</a>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <h3>Rust Security Tools</h3>
+                    <p>Collection of high-performance security tools written in Rust.</p>
+                    <div class="doc-links">
+                        <a href="rust_security_tools/target/doc/rust_security_tools/index.html">Documentation</a>
+                        <a href="rust_security_tools/README.md">README</a>
+                        <a href="https://github.com/G-H-O-S-T-Sec/rust-security-tools">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Educational Resources -->
+        <div class="project-section">
+            <h2 class="cyber-glow">Educational Resources</h2>
+            <div class="docs-grid">
+                <div class="doc-card">
+                    <h3>C++ Learning Lab</h3>
+                    <p>Comprehensive C++ programming curriculum with focus on systems programming.</p>
+                    <div class="doc-links">
+                        <a href="cpp_learning_lab/curriculum/README.md">Curriculum</a>
+                        <a href="cpp_learning_lab/docs/index.html">Documentation</a>
+                        <a href="https://github.com/G-H-O-S-T-Sec/cpp-learning-lab">GitHub</a>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <h3>Database Forensics</h3>
+                    <p>SQL-based database forensics and analysis toolkit.</p>
+                    <div class="doc-links">
+                        <a href="database_forensics.sql">View Code</a>
+                        <a href="https://github.com/G-H-O-S-T-Sec/database-forensics">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../src/js/script.js"></script>
+</body>
+</html>
